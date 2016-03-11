@@ -125,15 +125,12 @@ endif( WIN32 )
 
 set(GAME_SRC
   Classes/AppDelegate.cpp
-  Classes/HelloWorldScene.cpp
-  ${PLATFORM_SPECIFIC_SRC}
-)
+  Classes/HelloWorldScene.cpp)
 
 set(GAME_HEADERS
   Classes/AppDelegate.h
   Classes/HelloWorldScene.h
-  ${PLATFORM_SPECIFIC_HEADERS}
-)
+        Classes/frameworks/UI/UIBase.cpp Classes/frameworks/UI/UIBase.h Classes/frameworks/ModelBase.cpp Classes/frameworks/ModelBase.h Classes/frameworks/Models/ModelBase.cpp Classes/frameworks/Models/ModelBase.h)
 
 #项目依赖头文件引入,注意编译ios mac 将对应的依赖文件在xcode中处理
 include_directories(

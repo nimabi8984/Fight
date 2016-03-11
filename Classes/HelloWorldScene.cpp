@@ -1,6 +1,15 @@
+//#include <frameworks/UI/UIBase.h>
+#include "UIBase.h"
 #include "HelloWorldScene.h"
+#include "xqwlight.hpp"
 
 USING_NS_CC;
+const std::string chessResFrefix = "res/images/";
+const std::string PIECE_NAME[24] = {
+                                    "oo", "", "", "", "", "", "", "",
+                                    "rk", "ra", "rb", "rn", "rr", "rc", "rp", "",
+                                    "bk", "ba", "bb", "bn", "br", "bc", "bp", "",
+};
 
 Scene* HelloWorld::createScene()
 {
@@ -53,8 +62,8 @@ bool HelloWorld::init()
 
     // add a label shows "Hello World"
     // create and initialize a label
-    
-    auto label = Label::createWithTTF("Hello World", "fonts/Marker Felt.ttf", 24);
+
+    auto label = Label::createWithTTF("XQWLIGHT", "fonts/Marker Felt.ttf", 24);
     
     // position the label on the center of the screen
     label->setPosition(Vec2(origin.x + visibleSize.width/2,
@@ -66,15 +75,58 @@ bool HelloWorld::init()
     // add "HelloWorld" splash screen"
     auto sprite = Sprite::create("HelloWorld.png");
 
+    auto center = Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y);
     // position the sprite on the center of the screen
-    sprite->setPosition(Vec2(visibleSize.width/2 + origin.x, visibleSize.height/2 + origin.y));
+    sprite->setPosition(center);
 
     // add the sprite as a child to this layer
     this->addChild(sprite, 0);
     
+    // 初始化全局变量
+    srand((DWORD) time(NULL));
+    InitZobrist();
+    LoadBook();
+    Xqwl.bFlipped = false;
+    Startup();
+    
+    this->DrawBoard();
+    
     return true;
 }
 
+void HelloWorld::DrawBoard()
+{
+    auto winSize = Director::getInstance()->getWinSize();
+    auto bg = Sprite::create("board.jpg");
+    bg->setPosition(Vec2(winSize.width/2, winSize.height/2));
+    this->addChild(bg);
+    bool bFlipped = false;
+    
+    int x, y, xx, yy, sq, pc;
+    for (x = FILE_LEFT; x <= FILE_RIGHT; x ++) {
+        for (y = RANK_TOP; y <= RANK_BOTTOM; y ++) {
+            if (bFlipped) {
+                xx = BOARD_EDGE + (FILE_FLIP(x) - FILE_LEFT) * SQUARE_SIZE;
+                yy = BOARD_EDGE + (RANK_FLIP(y) - RANK_TOP) * SQUARE_SIZE;
+            } else {
+                xx = BOARD_EDGE + (x - FILE_LEFT) * SQUARE_SIZE;
+                yy = BOARD_EDGE + (y - RANK_TOP) * SQUARE_SIZE;
+            }
+            sq = COORD_XY(x, y);
+            pc = pos.ucpcSquares[sq];
+            CCLOG("sq:%d, pc:%d", sq, pc);
+//            CCLOG("x-y: %d-%d", xx, yy);
+            if (pc != 0) {
+                auto sp = Sprite::create(PIECE_NAME[pc] + ".png");
+                bg->addChild(sp);
+                sp->setPosition(Vec2(xx, yy));
+            }
+            if (sq == Xqwl.sqSelected || sq == SRC(Xqwl.mvLast) || sq == DST(Xqwl.mvLast)) {
+                
+            }
+        }
+    }
+}
 
 void HelloWorld::menuCloseCallback(Ref* pSender)
 {

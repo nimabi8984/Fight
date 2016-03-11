@@ -59,6 +59,11 @@
 		521A8EA919F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		521A8EAA19F11F5000D177D7 /* fonts in Resources */ = {isa = PBXBuildFile; fileRef = 521A8EA819F11F5000D177D7 /* fonts */; };
 		52B47A471A53D09C004E4C60 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52B47A461A53D09B004E4C60 /* Security.framework */; };
+		6003954A1C925EE700F6EFC7 /* xqwlight.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 600395481C925EE700F6EFC7 /* xqwlight.cpp */; };
+		6003954C1C92BD6C00F6EFC7 /* BOOK.DAT in Resources */ = {isa = PBXBuildFile; fileRef = 6003954B1C92647A00F6EFC7 /* BOOK.DAT */; };
+		6096F5281C77130D009EF283 /* ModelBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6096F5231C77130D009EF283 /* ModelBase.cpp */; };
+		6096F5291C77130D009EF283 /* UIBase.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 6096F5261C77130D009EF283 /* UIBase.cpp */; };
+		60FF6DD41C7AA3CA00314163 /* MainScene.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 60FF6DD21C7AA3CA00314163 /* MainScene.cpp */; };
 		8262943E1AAF051F00CB7CF7 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8262943D1AAF051F00CB7CF7 /* Security.framework */; };
 		BF171245129291EC00B8313A /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB012928DE900B8313A /* OpenGLES.framework */; };
 		BF1712471292920000B8313A /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = BF170DB412928DE900B8313A /* libz.dylib */; };
@@ -153,6 +158,15 @@
 		521A8E6319F0C34300D177D7 /* Default-736h@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-736h@3x.png"; sourceTree = "<group>"; };
 		521A8EA819F11F5000D177D7 /* fonts */ = {isa = PBXFileReference; lastKnownFileType = folder; path = fonts; sourceTree = "<group>"; };
 		52B47A461A53D09B004E4C60 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS8.1.sdk/System/Library/Frameworks/Security.framework; sourceTree = DEVELOPER_DIR; };
+		600395481C925EE700F6EFC7 /* xqwlight.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = xqwlight.cpp; sourceTree = "<group>"; };
+		600395491C925EE700F6EFC7 /* xqwlight.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = xqwlight.hpp; sourceTree = "<group>"; };
+		6003954B1C92647A00F6EFC7 /* BOOK.DAT */ = {isa = PBXFileReference; lastKnownFileType = file; path = BOOK.DAT; sourceTree = "<group>"; };
+		6096F5231C77130D009EF283 /* ModelBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ModelBase.cpp; sourceTree = "<group>"; };
+		6096F5241C77130D009EF283 /* ModelBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ModelBase.h; sourceTree = "<group>"; };
+		6096F5261C77130D009EF283 /* UIBase.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = UIBase.cpp; sourceTree = "<group>"; };
+		6096F5271C77130D009EF283 /* UIBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIBase.h; sourceTree = "<group>"; };
+		60FF6DD21C7AA3CA00314163 /* MainScene.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MainScene.cpp; sourceTree = "<group>"; };
+		60FF6DD31C7AA3CA00314163 /* MainScene.hpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.h; path = MainScene.hpp; sourceTree = "<group>"; };
 		8262943D1AAF051F00CB7CF7 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		BF170DB012928DE900B8313A /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
 		BF170DB412928DE900B8313A /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
@@ -284,6 +298,7 @@
 		46880B7519C43A67006E1F66 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				6003954B1C92647A00F6EFC7 /* BOOK.DAT */,
 				521A8EA819F11F5000D177D7 /* fonts */,
 				3EACC98E19EE6D4300EB3C5E /* res */,
 				46880B7619C43A67006E1F66 /* CloseNormal.png */,
@@ -297,10 +312,13 @@
 		46880B8319C43A87006E1F66 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				6096F5211C77130D009EF283 /* frameworks */,
 				46880B8419C43A87006E1F66 /* AppDelegate.cpp */,
 				46880B8519C43A87006E1F66 /* AppDelegate.h */,
 				46880B8619C43A87006E1F66 /* HelloWorldScene.cpp */,
 				46880B8719C43A87006E1F66 /* HelloWorldScene.h */,
+				600395481C925EE700F6EFC7 /* xqwlight.cpp */,
+				600395491C925EE700F6EFC7 /* xqwlight.hpp */,
 			);
 			name = Classes;
 			path = ../Classes;
@@ -352,6 +370,35 @@
 			name = Icons;
 			path = ios;
 			sourceTree = SOURCE_ROOT;
+		};
+		6096F5211C77130D009EF283 /* frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				6096F5221C77130D009EF283 /* Models */,
+				6096F5251C77130D009EF283 /* UI */,
+			);
+			path = frameworks;
+			sourceTree = "<group>";
+		};
+		6096F5221C77130D009EF283 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				6096F5231C77130D009EF283 /* ModelBase.cpp */,
+				6096F5241C77130D009EF283 /* ModelBase.h */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		6096F5251C77130D009EF283 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				6096F5261C77130D009EF283 /* UIBase.cpp */,
+				6096F5271C77130D009EF283 /* UIBase.h */,
+				60FF6DD21C7AA3CA00314163 /* MainScene.cpp */,
+				60FF6DD31C7AA3CA00314163 /* MainScene.hpp */,
+			);
+			path = UI;
+			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
@@ -448,6 +495,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6003954C1C92BD6C00F6EFC7 /* BOOK.DAT in Resources */,
 				5087E78117EB970100C73F5D /* Icon-120.png in Resources */,
 				5087E78617EB970100C73F5D /* Icon-76.png in Resources */,
 				5087E77F17EB970100C73F5D /* Default@2x.png in Resources */,
@@ -494,8 +542,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				6096F5281C77130D009EF283 /* ModelBase.cpp in Sources */,
+				60FF6DD41C7AA3CA00314163 /* MainScene.cpp in Sources */,
+				6003954A1C925EE700F6EFC7 /* xqwlight.cpp in Sources */,
 				46880B8819C43A87006E1F66 /* AppDelegate.cpp in Sources */,
 				46880B8A19C43A87006E1F66 /* HelloWorldScene.cpp in Sources */,
+				6096F5291C77130D009EF283 /* UIBase.cpp in Sources */,
 				503AE10017EB989F00D1A890 /* AppController.mm in Sources */,
 				503AE10217EB989F00D1A890 /* RootViewController.mm in Sources */,
 				503AE10117EB989F00D1A890 /* main.m in Sources */,
